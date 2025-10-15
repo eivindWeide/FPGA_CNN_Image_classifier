@@ -5,6 +5,7 @@ This is a project for a CNN image classifier implemented on an FPGA. The model i
 Using the serial_com.py script it is possible to send an image to the FPGA in the form of 3*32*32 floating-point numbers and then the FPGA will send the result back over the serial port. The process is specified in the file. 
 
 Running the script looks like this:
+
 https://github.com/user-attachments/assets/f4b6cb52-3358-45a5-8dc0-ea2cfbf1f8f5
 
 ## How to create project in Vivado
