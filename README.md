@@ -2,9 +2,9 @@
 
 This is a project for a CNN image classifier implemented on an FPGA. The model implemented is trained on the [CIFAR10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html).
 
-Using the serial_com.py script it is possible to send an image to the FPGA in the form of 3/*32/*32 floating-point numbers and then the FPGA will send the result back over the serial port. The process is specified in the file. 
+Using the serial_com.py script it is possible to send an image to the FPGA in the form of 3 \ast 32 \ast 32 floating-point numbers and then the FPGA will send the result back over the serial port. The process is specified in the serial_com.py file.
 
-Running the script looks like this:
+Running the script after connecting and programming the FPGA looks like this:
 
 https://github.com/user-attachments/assets/f4b6cb52-3358-45a5-8dc0-ea2cfbf1f8f5
 
