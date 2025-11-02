@@ -2,6 +2,7 @@
 
 This is a project for a CNN image classifier using the following layer types on an FPGA: 
 - 2d convolution with kernel_size = 3 and padding = 1
+- BatchNorm2d
 - Maxpooling with kernel_size = 2 and padding = 2
 - Fully connected layers
 - Rectified linear units
@@ -15,7 +16,9 @@ This is a project for a CNN image classifier using the following layer types on 
 
 ## Details
 
-The trained model `cifar10_improved_cnn.pth` is pre-loaded on to the FPGAs memory during programming. The model is trained on the [CIFAR10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) and the layer settings can be found in `extract_weights_from_model.py`. 
+The trained model `cifar10_improved_cnn.pth` is pre-loaded on to the FPGAs memory during programming. The model is trained on the [CIFAR10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) and the layer settings can be found in `extract_weights_from_model.py`. The model has an accuracy of 81% and 114 186 parameters.
+
+To limit memory usage the BatchNorm2d parameters are fused into the convolution weights in `extract_weights_from_model.py` and maxpooling is done concurrently during convolution to reduce the maximum size of the stored feature map by 4x.
 
 The classifier uses the serial port to communicate receive and send data. Using `serial_com.py` it is possible to send an image to the FPGA in the form of 3\*32\*32 \(RGB 32x32 image\) single-precision floating-point numbers and then the FPGA will send the result back. The process is detailed in `serial_com.py`.
 
