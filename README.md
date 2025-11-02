@@ -20,7 +20,7 @@ The trained model `cifar10_improved_cnn.pth` is pre-loaded on to the FPGAs memor
 
 To limit memory usage the BatchNorm2d parameters are fused into the convolution weights in `extract_weights_from_model.py` and maxpooling is done concurrently during convolution to reduce the maximum size of the stored feature map by 4x.
 
-The classifier uses the serial port to communicate receive and send data. Using `serial_com.py` it is possible to send an image to the FPGA in the form of 3\*32\*32 \(RGB 32x32 image\) single-precision floating-point numbers and then the FPGA will send the result back. The process is detailed in `serial_com.py`.
+The classifier uses the serial port to receive and send data. Using `serial_com.py` it is possible to send an image to the FPGA in the form of 3\*32\*32 \(RGB 32x32 image\) single-precision floating-point numbers and then the FPGA will send the result back. The process is detailed in `serial_com.py`.
 
 Running `serial_com.py` after connecting and programming the FPGA looks like this:
 
